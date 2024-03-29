@@ -15,6 +15,14 @@ const menu = `Seleccionar una opcion:
 let condition = true;
 let result;
 
+const numerosA = [4, 5, 6, 10, 13, 25];
+let numerosB = [4, 6, 8, 5];
+const tabla = [
+  [10, 20, 30, 40],
+  [20, 30, 40, 50],
+  [60, 70, 80, 90],
+];
+
 while (condition) {
   let mainMenu = window.prompt(menu);
   switch (parseInt(mainMenu)) {
@@ -28,16 +36,18 @@ while (condition) {
       mayor();
       break;
     case 3:
-      media();
+      media(numerosA);
       break;
     case 4:
-      sumaImpares();
+      sumaImpares(numerosA);
       break;
     case 5:
-      divisibles();
+      let numero = window.prompt("¿Los divisibles del nº ? ");
+      divisibles(numerosA, numero);
       break;
     case 6:
-      incrementar();
+      let porcentaje = window.prompt("Indica el porcentaje: "); 
+      incrementar(numerosB, porcentaje);
       break;
     case 7:
       producto();
@@ -57,22 +67,65 @@ while (condition) {
   }
 } 
 
-const numerosA = [4, 5, 6, 10, 13, 25];
-let numerosB = [4, 6, 8, 5];
-const tabla = [
-  [10, 20, 30, 40],
-  [20, 30, 40, 50],
-  [60, 70, 80, 90],
-];
-
 // Funcion cuantosPares
 function cuantosPares() {
   let numPares = 0;
   numerosA.forEach( x => {
-    console.log(x);
     if (x % 2 == 0) {
       numPares++;
     }
-    window.alert("El nº de pares es :" + numPares );
   });
+  window.alert("El nº de pares es :" + numPares );
+}
+
+function mayor() {
+  let numeroMayor = numerosB[0];
+  numerosB.forEach( x => {
+    if (numeroMayor < x) {
+      numeroMayor = x;
+    }
+  });
+  window.alert("El nº mayor es : " + numeroMayor );
+}
+
+function media(array) {
+  let elementosTotales = array.length;
+  let sumaArray = 0;
+  array.forEach( x => {
+    sumaArray += x; 
+  });
+  let media = sumaArray / elementosTotales;
+  window.alert("La media es : " + media );
+}
+
+function sumaImpares(array) {
+  let sumaElementosImpares = 0;
+  array.forEach( x => {
+    if(x % 2 != 0){
+      sumaElementosImpares += x; 
+    }
+  });
+  window.alert("El total de impares es : " + sumaElementosImpares );
+}
+
+function divisibles(array, numero) {
+  let numerosDivisibles = [];
+  array.forEach( x => {
+    if(x % numero == 0){
+      numerosDivisibles.push(x); 
+    }
+  });
+  window.alert("Los numeros divisibles por " + numero + " son :\n " + numerosDivisibles + ",");
+}
+
+function incrementar(array, porcentaje) {
+  porcentaje = porcentaje/100;
+  console.log("hola");
+  let arrayAuxiliar = array;
+  let nuevoArrayPorcentaje = [];
+  arrayAuxiliar.forEach( x => {
+    nuevoArrayPorcentaje.push(x * porcentaje);
+    
+  });
+  console.log(nuevoArrayPorcentaje);
 }
