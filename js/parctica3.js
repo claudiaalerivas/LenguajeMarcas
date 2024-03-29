@@ -50,10 +50,10 @@ while (condition) {
       incrementar(numerosB, porcentaje);
       break;
     case 7:
-      producto();
+      producto(numerosA, numerosB);
       break;
     case 8:
-      foreInsert();
+      foreInsert([100, 110, 310, 420, 530]);
       break;
     case 9:
       sumaTable();
@@ -120,12 +120,27 @@ function divisibles(array, numero) {
 
 function incrementar(array, porcentaje) {
   porcentaje = porcentaje/100;
-  console.log("hola");
-  let arrayAuxiliar = array;
+  let arrayAuxiliar = array; // Estoy declarando una variable auxiliar para guardar un array de tipo constante (numerosA) y que pueda ser modificado.
   let nuevoArrayPorcentaje = [];
   arrayAuxiliar.forEach( x => {
-    nuevoArrayPorcentaje.push(x * porcentaje);
-    
+    nuevoArrayPorcentaje.push(x + x * porcentaje);
   });
   console.log(nuevoArrayPorcentaje);
+}
+
+function producto(array1, array2) {
+  let multiplicacionArrays = [];
+  array1.forEach( x => {
+    array2.forEach( y => {
+      multiplicacionArrays.push(x * y);
+    });
+  });
+  console.log(multiplicacionArrays);
+}
+
+function foreInsert(array) {
+  array.forEach( x => {
+    numerosB.unshift(x);
+  });
+  console.log(numerosB);
 }
