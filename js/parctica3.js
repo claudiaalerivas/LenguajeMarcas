@@ -56,10 +56,10 @@ while (condition) {
       foreInsert([100, 110, 310, 420, 530]);
       break;
     case 9:
-      sumaTable();
+      sumaTable(tabla);
       break;
     case 10:
-      sumaFila();
+      sumaFila(tabla, 2);
       break;
     default:
       alert("Opcion invalida, introduzca un numero desde el 0 hasta el 10");
@@ -143,4 +143,24 @@ function foreInsert(array) {
     numerosB.unshift(x);
   });
   console.log(numerosB);
+}
+
+function  sumaTable(table) {
+  let resultado = 0;
+  for(let i = 0; i < table.length; i++){
+    for (let j = 0; j < table[i].length; j++) {
+      resultado += table[i][j];
+    }
+  }
+  console.log("la suma es: " + resultado); 
+
+}
+
+function  sumaFila(table, row) {
+  let resultado = 0;
+  for (let i = 0; i < table[row].length; i++) {
+    resultado += table[row][i];    
+  }
+  console.log("la suma es: " + resultado); 
+
 }
