@@ -30,36 +30,36 @@ while (condition) {
       condition = false;
       break;
     case 1:
-      cuantosPares();
+      howManyPairs();
       break;
     case 2:
-      mayor();
+      biggerNumber();
       break;
     case 3:
-      media(numerosA);
+      half(numerosA);
       break;
     case 4:
-      sumaImpares(numerosA);
+      oddSum(numerosA);
       break;
     case 5:
-      let numero = window.prompt("¿Los divisibles del nº ? ");
-      divisibles(numerosA, numero);
+      let number = window.prompt("¿Los divisibles del nº ? ");
+      divisible(numerosA, number);
       break;
     case 6:
-      let porcentaje = window.prompt("Indica el porcentaje: "); 
-      incrementar(numerosB, porcentaje);
+      let percentage = window.prompt("Indica el porcentaje: "); 
+      increment(numerosB, percentage);
       break;
     case 7:
-      producto(numerosA, numerosB);
+      product(numerosA, numerosB);
       break;
     case 8:
       foreInsert([100, 110, 310, 420, 530]);
       break;
     case 9:
-      sumaTable(tabla);
+      sumTable(tabla);
       break;
     case 10:
-      sumaFila(tabla, 2);
+      sumRow(tabla, 2);
       break;
     default:
       alert("Opcion invalida, introduzca un numero desde el 0 hasta el 10");
@@ -68,99 +68,139 @@ while (condition) {
 } 
 
 // Funcion cuantosPares
-function cuantosPares() {
-  let numPares = 0;
-  numerosA.forEach( x => {
-    if (x % 2 == 0) {
-      numPares++;
+function howManyPairs() {
+  /*
+  * FUNCTION HOW MANY PAIRS
+  * In this function we are going to calculate how many even numbers are contained in an array
+  */
+  let numPairs = 0;
+  numerosA.forEach( element => {
+    if (element % 2 == 0) {
+      numPairs++;
     }
   });
-  window.alert("El nº de pares es :" + numPares );
+  window.alert("El nº de pares es :" + numPairs );
 }
 
-function mayor() {
-  let numeroMayor = numerosB[0];
-  numerosB.forEach( x => {
-    if (numeroMayor < x) {
-      numeroMayor = x;
+function biggerNumber() {
+  /*
+  * FUNCTION BIGGER NUMBER
+  * In this function according to the "numerosB" arrangement we will see which is the largest number
+  */
+  let biggerNumber = numerosB[0];
+  numerosB.forEach( element => {
+    if (biggerNumber < element) {
+      biggerNumber = element;
     }
   });
-  window.alert("El nº mayor es : " + numeroMayor );
+  window.alert("El nº mayor es : " + biggerNumber );
 }
 
-function media(array) {
-  let elementosTotales = array.length;
-  let sumaArray = 0;
-  array.forEach( x => {
-    sumaArray += x; 
+function half(array) {
+  /*
+  * FUNCTION HALF
+  * In this function, when passing an array, we will see what the average of this is.
+  */
+  let elementsTotals = array.length;
+  let sumArray = 0;
+  array.forEach( element => {
+    sumArray += element; 
   });
-  let media = sumaArray / elementosTotales;
-  window.alert("La media es : " + media );
+  let half = sumArray / elementsTotals;
+  window.alert("La media es : " + half );
 }
 
-function sumaImpares(array) {
-  let sumaElementosImpares = 0;
-  array.forEach( x => {
-    if(x % 2 != 0){
-      sumaElementosImpares += x; 
+function oddSum(array) {
+  /*
+  * FUNCTION ODD SUM
+  * In this function, when passing an array we will make a sum based on the odd elements
+  */
+  let sumElementsOdd = 0;
+  array.forEach( element => {
+    if(element % 2 != 0){
+      sumElementsOdd += element; 
     }
   });
-  window.alert("El total de impares es : " + sumaElementosImpares );
+  window.alert("El total de impares es : " + sumElementsOdd );
 }
 
-function divisibles(array, numero) {
-  let numerosDivisibles = [];
-  array.forEach( x => {
-    if(x % numero == 0){
-      numerosDivisibles.push(x); 
+function divisibles(array, number) {
+  /*
+  * FUNCTION DIVISIBLES
+  * This function, based on a number passed to it by the user, will calculate which numbers are divisible based on the number passed by the user.
+  */
+  let numberDivisible = [];
+  array.forEach( element => {
+    if(element % number == 0){
+      numberDivisible.push(element); 
     }
   });
-  window.alert("Los numeros divisibles por " + numero + " son :\n " + numerosDivisibles + ",");
+  window.alert("Los numeros divisibles por " + number + " son :\n " + numberDivisible);
 }
 
-function incrementar(array, porcentaje) {
-  porcentaje = porcentaje/100;
-  let arrayAuxiliar = array; // Estoy declarando una variable auxiliar para guardar un array de tipo constante (numerosA) y que pueda ser modificado.
-  let nuevoArrayPorcentaje = [];
-  arrayAuxiliar.forEach( x => {
-    nuevoArrayPorcentaje.push(x + x * porcentaje);
+function increment(array, porcentage) {
+  /*
+  * FUNCTION INCREMENT
+  * This function, based on a percentage that the user entered, that percentage will be added to an array that we pass to the function
+  */
+
+  let porcentage = porcentage/100;
+  let auxiliarArray = array; // I am declaring an auxiliary variable to save an array of constant type (numerosA) and that can be modified.
+  let newArrayPorcentage = [];
+  auxiliarArray.forEach( element => {
+    newArrayPorcentage.push(element + element * porcentage);
   });
-  console.log(nuevoArrayPorcentaje);
+  console.log(newArrayPorcentage);
 }
 
-function producto(array1, array2) {
-  let multiplicacionArrays = [];
-  array1.forEach( x => {
-    array2.forEach( y => {
-      multiplicacionArrays.push(x * y);
+function product(array1, array2) {
+  /*
+  * FUNCTION PRODUCT
+  * In this function we will pass arrays where we will multiply the elements of the two arrays
+  */
+  let multiplicationArrays = [];
+  array1.forEach( i => {
+    array2.forEach( j => {
+      multiplicationArrays.push(i * j);
     });
   });
-  console.log(multiplicacionArrays);
+  console.log(multiplicationArrays);
 }
 
 function foreInsert(array) {
+  /*
+  * FUNCTION FORE INSERT
+  * In this function we will insert an array to the array called "numerosB"
+  */
   array.forEach( x => {
     numerosB.unshift(x);
   });
   console.log(numerosB);
 }
 
-function  sumaTable(table) {
-  let resultado = 0;
+function  sumTable(table) {
+  /*
+  * FUNCTION SUM TABLE
+  * In this function we sum all the elements of a matrix, or an array of dimensions
+  */
+  let result = 0;
   for(let i = 0; i < table.length; i++){
     for (let j = 0; j < table[i].length; j++) {
-      resultado += table[i][j];
+      result += table[i][j];
     }
   }
-  console.log("la suma es: " + resultado); 
+  console.log("la suma es: " + result); 
 
 }
 
-function  sumaFila(table, row) {
-  let resultado = 0;
+function  sumRow(table, row) {
+  /*
+  * FUNCTION BIGGER NUMBER
+  * In this function we will sum the elements of a row
+  */
+  let result = 0;
   for (let i = 0; i < table[row].length; i++) {
-    resultado += table[row][i];    
+    result += table[row][i];    
   }
-  console.log("la suma es: " + resultado); 
-
+  console.log("la suma es: " + result); 
 }
