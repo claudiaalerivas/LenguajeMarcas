@@ -144,7 +144,7 @@ function increment(array, porcentage) {
   * This function, based on a percentage that the user entered, that percentage will be added to an array that we pass to the function
   */
 
-  let porcentage = porcentage/100;
+  porcentage = porcentage/100;
   let auxiliarArray = array; // I am declaring an auxiliary variable to save an array of constant type (numerosA) and that can be modified.
   let newArrayPorcentage = [];
   auxiliarArray.forEach( element => {
@@ -178,7 +178,7 @@ function foreInsert(array) {
   console.log(numerosB);
 }
 
-function  sumTable(table) {
+function sumTable(table) {
   /*
   * FUNCTION SUM TABLE
   * In this function we sum all the elements of a matrix, or an array of dimensions
@@ -193,7 +193,7 @@ function  sumTable(table) {
 
 }
 
-function  sumRow(table, row) {
+function sumRow(table, row) {
   /*
   * FUNCTION BIGGER NUMBER
   * In this function we will sum the elements of a row
@@ -204,3 +204,4 @@ function  sumRow(table, row) {
   }
   console.log("la suma es: " + result); 
 }
+
